@@ -32,11 +32,25 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
     );
   };
 
+  const handleRangeChange = (e) => {
+    audioRef.current.currentTime = e.target.value;
+    setSongInfo({
+      ...songInfo,
+      currentTime: e.target.value,
+    });
+  };
+
   return (
     <div className="player">
       <div className="time-control">
         <p>{getCleanTime(songInfo.currentTime)}</p>
-        <input type="range" />
+        <input
+          min={0}
+          value={songInfo.currentTime}
+          max={songInfo.duration}
+          type="range"
+          onChange={handleRangeChange}
+        />
         <p>{getCleanTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">

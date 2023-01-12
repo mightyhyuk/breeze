@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -5,7 +7,12 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Player() {
+function Player({ currentSong }) {
+  const audioRef = useRef(null);
+  const playSong = () => {
+    console.log(audioRef.current);
+  };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -19,13 +26,19 @@ function Player() {
           size="2x"
           icon={faAngleLeft}
         />
-        <FontAwesomeIcon className="play" size="2x" icon={faPlay} />
+        <FontAwesomeIcon
+          onClick={playSong}
+          className="play"
+          size="2x"
+          icon={faPlay}
+        />
         <FontAwesomeIcon
           className="skip-forward"
           size="2x"
           icon={faAngleRight}
         />
       </div>
+      <audio ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
 }

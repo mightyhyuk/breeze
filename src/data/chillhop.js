@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-function getChillhopSongs() {
+function getChillhopMusic() {
   return [
     {
       title: "Beaver Creek",
@@ -65,4 +65,4 @@ function getChillhopSongs() {
   ];
 }
 
-export default getChillhopSongs;
+export default getChillhopMusic;

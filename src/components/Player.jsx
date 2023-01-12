@@ -14,7 +14,11 @@ function Player() {
         <p>End Time</p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleLeft} />
+        <FontAwesomeIcon
+          className="skip-backward"
+          size="2x"
+          icon={faAngleLeft}
+        />
         <FontAwesomeIcon className="play" size="2x" icon={faPlay} />
         <FontAwesomeIcon
           className="skip-forward"

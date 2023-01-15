@@ -1,7 +1,6 @@
-function LibrarySong({ song, songs, setCurrentSong, id }) {
+function LibrarySong({ song, setCurrentSong }) {
   const selectSong = () => {
-    const selectedSong = songs.filter((song) => song.id === id);
-    console.log(id);
+    setCurrentSong(song);
   };
 
   return (

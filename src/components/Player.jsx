@@ -29,7 +29,7 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
   return (
     <div className="player">
       <div className="time-control">
-        <p>{getCleanTime(songInfo.currentTime)}</p>
+        <time>{getCleanTime(songInfo.currentTime)}</time>
         <input
           min={0}
           value={songInfo.currentTime}
@@ -37,7 +37,7 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
           type="range"
           onChange={handleRangeChange}
         />
-        <p>{getCleanTime(songInfo.duration)}</p>
+        <time>{getCleanTime(songInfo.duration)}</time>
       </div>
       <div className="play-control">
         <FontAwesomeIcon

@@ -22,7 +22,7 @@ function App() {
   const updateSongInfo = (e) => {
     setSongInfo({
       currentTime: e.target.currentTime,
-      duration: e.target.duration,
+      duration: e.target.duration || 0,
     });
   };
 

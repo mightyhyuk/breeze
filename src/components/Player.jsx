@@ -1,12 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
-  faAngleLeft,
-  faAngleRight,
+  faForward,
+  faBackward,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
+function Player({
+  currentSong,
+  setCurrentSong,
+  songs,
+  isPlaying,
+  setIsPlaying,
+  audioRef,
+  songInfo,
+  setSongInfo,
+}) {
   const playSong = () => {
     isPlaying ? audioRef.current.pause() : audioRef.current.play();
     setIsPlaying(!isPlaying);
@@ -26,6 +35,25 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
     });
   };
 
+  const handleSkip = (direction) => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    if (direction === "backward") {
+      if (currentIndex === 0) {
+        setCurrentSong(songs[songs.length - 1]);
+        return;
+      }
+      setCurrentSong(songs[currentIndex - 1]);
+      return;
+    }
+    if (direction === "forward") {
+      if (currentIndex === songs.length - 1) {
+        setCurrentSong(songs[0]);
+        return;
+      }
+      setCurrentSong(songs[currentIndex + 1]);
+    }
+  };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -41,9 +69,12 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
       </div>
       <div className="play-control">
         <FontAwesomeIcon
+          onClick={() => {
+            handleSkip("backward");
+          }}
           className="skip-backward"
           size="2x"
-          icon={faAngleLeft}
+          icon={faBackward}
         />
         <FontAwesomeIcon
           onClick={playSong}
@@ -52,9 +83,12 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
           icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon
+          onClick={() => {
+            handleSkip("forward");
+          }}
           className="skip-forward"
           size="2x"
-          icon={faAngleRight}
+          icon={faForward}
         />
       </div>
     </div>

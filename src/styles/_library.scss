@@ -6,6 +6,9 @@
   left: 0;
   box-shadow: 0 0 50px rgb(200, 200, 200);
   overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 0;
   h2 {
     padding: 2rem;
   }
@@ -46,4 +49,9 @@
 
 .selected {
   background: #fad0c9;
+}
+
+.open {
+  transform: translateX(0);
+  opacity: 1;
 }

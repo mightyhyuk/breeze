@@ -12,19 +12,16 @@ body {
   background-color: #fad0c9;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #6e6e6d;
-}
-
 h2 {
   color: #626261;
+}
+
+h3,
+h4 {
+  color: #6e6e6d;
 }
 
 @import "./song";
 @import "./player";
 @import "./library";
+@import "./navbar";

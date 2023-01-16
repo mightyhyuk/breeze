@@ -10,7 +10,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
       colors: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: true,
+      isActive: true,
     },
     {
       title: "Daylight",
@@ -20,7 +20,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
       colors: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Keep Going",
@@ -30,7 +30,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
       colors: ["#CD607D", "#c94043"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Nightfall",
@@ -40,7 +40,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9148",
       colors: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Reflection",
@@ -50,7 +50,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9228",
       colors: ["#CD607D", "#c94043"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Under the City Stars",
@@ -60,7 +60,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       colors: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Under the City Stars",
@@ -70,7 +70,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       colors: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Under the City Stars",
@@ -80,7 +80,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       colors: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
     {
       title: "Under the City Stars",
@@ -90,7 +90,7 @@ function getChillhopSongs() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       colors: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
+      isActive: false,
     },
   ];
 }

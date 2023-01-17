@@ -10,6 +10,7 @@ function Player({
   currentSong,
   setCurrentSong,
   songs,
+  setSongs,
   isPlaying,
   setIsPlaying,
   audioRef,
@@ -40,17 +41,33 @@ function Player({
     if (direction === "backward") {
       if (currentIndex === 0) {
         setCurrentSong(songs[songs.length - 1]);
-        return;
+      } else {
+        setCurrentSong(songs[currentIndex - 1]);
       }
-      setCurrentSong(songs[currentIndex - 1]);
-      return;
-    }
-    if (direction === "forward") {
+    } else if (direction === "forward") {
       if (currentIndex === songs.length - 1) {
         setCurrentSong(songs[0]);
-        return;
+      } else {
+        setCurrentSong(songs[currentIndex + 1]);
       }
-      setCurrentSong(songs[currentIndex + 1]);
+    }
+    const updatedSongs = songs.map((s) =>
+      s.id === currentSong.id
+        ? { ...s, isActive: true }
+        : { ...s, isActive: false }
+    );
+    setSongs(updatedSongs);
+    if (isPlaying) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => audioRef.current.play())
+          .catch((err) => {
+            console.error(err);
+            audioRef.current.pause();
+            setIsPlaying(false);
+          });
+      }
     }
   };
 

@@ -10,6 +10,7 @@ import "./styles/app.scss";
 import getChillhopSongs from "./data/chillhop";
 
 function App() {
+  // state
   const [songs, setSongs] = useState(getChillhopSongs());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,8 +20,10 @@ function App() {
   });
   const [isLibOpen, setIsLibOpen] = useState(false);
 
+  // ref
   const audioRef = useRef(null);
 
+  // func
   const updateSongInfo = (e) => {
     setSongInfo({
       currentTime: e.target.currentTime,
@@ -45,6 +48,7 @@ function App() {
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
         songs={songs}
+        setSongs={setSongs}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         audioRef={audioRef}

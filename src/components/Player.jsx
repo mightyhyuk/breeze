@@ -6,6 +6,8 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { getCleanTime } from "../utils/getCleanTime";
+
 function Player({
   currentSong,
   setCurrentSong,
@@ -20,12 +22,6 @@ function Player({
   const playSong = () => {
     isPlaying ? audioRef.current.pause() : audioRef.current.play();
     setIsPlaying(!isPlaying);
-  };
-
-  const getCleanTime = (time) => {
-    return (
-      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
-    );
   };
 
   const handleRangeChange = (e) => {
@@ -57,6 +53,7 @@ function Player({
         : { ...s, isActive: false }
     );
     setSongs(updatedSongs);
+
     if (isPlaying) {
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {

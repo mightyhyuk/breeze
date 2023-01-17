@@ -32,27 +32,34 @@ function Player({
     });
   };
 
+  const updateSongs = (updatedSong) => {
+    const updatedSongs = songs.map((s) =>
+      s.id === updatedSong.id
+        ? { ...s, isActive: true }
+        : { ...s, isActive: false }
+    );
+    setSongs(updatedSongs);
+  };
+
   const handleSkip = (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "backward") {
       if (currentIndex === 0) {
         setCurrentSong(songs[songs.length - 1]);
+        updateSongs(songs[songs.length - 1]);
       } else {
         setCurrentSong(songs[currentIndex - 1]);
+        updateSongs(songs[currentIndex - 1]);
       }
     } else if (direction === "forward") {
       if (currentIndex === songs.length - 1) {
         setCurrentSong(songs[0]);
+        updateSongs(songs[0]);
       } else {
         setCurrentSong(songs[currentIndex + 1]);
+        updateSongs(songs[currentIndex + 1]);
       }
     }
-    const updatedSongs = songs.map((s) =>
-      s.id === currentSong.id
-        ? { ...s, isActive: true }
-        : { ...s, isActive: false }
-    );
-    setSongs(updatedSongs);
 
     if (isPlaying) {
       const playPromise = audioRef.current.play();

@@ -100,7 +100,7 @@ function Player({
         <FontAwesomeIcon
           onClick={playSong}
           className="play"
-          size="2x"
+          size="3x"
           icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon

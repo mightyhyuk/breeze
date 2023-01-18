@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { getCleanTime } from "../utils/getCleanTime";
+import { getSkippedSong } from "../utils/getSkippedSong";
 
 function Player({
   currentSong,
@@ -42,24 +43,10 @@ function Player({
   };
 
   const handleSkip = (direction) => {
-    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    if (direction === "backward") {
-      if (currentIndex === 0) {
-        setCurrentSong(songs[songs.length - 1]);
-        updateSongs(songs[songs.length - 1]);
-      } else {
-        setCurrentSong(songs[currentIndex - 1]);
-        updateSongs(songs[currentIndex - 1]);
-      }
-    } else if (direction === "forward") {
-      if (currentIndex === songs.length - 1) {
-        setCurrentSong(songs[0]);
-        updateSongs(songs[0]);
-      } else {
-        setCurrentSong(songs[currentIndex + 1]);
-        updateSongs(songs[currentIndex + 1]);
-      }
-    }
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const skippedSong = getSkippedSong(songs, direction, currentIndex);
+    setCurrentSong(skippedSong);
+    updateSongs(skippedSong);
 
     if (isPlaying) {
       const playPromise = audioRef.current.play();

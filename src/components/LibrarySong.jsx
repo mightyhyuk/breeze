@@ -7,24 +7,19 @@ function LibrarySong({
   isPlaying,
   setIsPlaying,
 }) {
-  const selectSong = () => {
-    setCurrentSong(song);
+  const selectSong = async () => {
+    await setCurrentSong(song);
     const updatedSongs = songs.map((s) =>
       s.id === song.id ? { ...s, isActive: true } : { ...s, isActive: false }
     );
     setSongs(updatedSongs);
 
     if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => audioRef.current.play())
-          .catch((err) => {
-            console.error(err);
-            audioRef.current.pause();
-            setIsPlaying(false);
-          });
-      }
+      await audioRef.current.play().catch((e) => {
+        console.error(e);
+        audioRef.current.pause();
+        setIsPlaying(false);
+      });
     }
   };
 

@@ -42,23 +42,18 @@ function Player({
     setSongs(updatedSongs);
   };
 
-  const handleSkip = (direction) => {
+  const handleSkip = async (direction) => {
     const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     const skippedSong = getSkippedSong(songs, direction, currentIndex);
-    setCurrentSong(skippedSong);
+    await setCurrentSong(skippedSong);
     updateSongs(skippedSong);
 
     if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => audioRef.current.play())
-          .catch((err) => {
-            console.error(err);
-            audioRef.current.pause();
-            setIsPlaying(false);
-          });
-      }
+      await audioRef.current.play().catch((e) => {
+        console.error(e);
+        audioRef.current.pause();
+        setIsPlaying(false);
+      });
     }
   };
 

@@ -10,7 +10,7 @@ function Library({
   isLibOpen,
 }) {
   return (
-    <div className={`library ${isLibOpen ? "open" : ""}`}>
+    <aside className={`library ${isLibOpen ? "open" : ""}`}>
       <h2>Library</h2>
       {songs.map((song) => (
         <LibrarySong
@@ -24,7 +24,7 @@ function Library({
           setIsPlaying={setIsPlaying}
         />
       ))}
-    </div>
+    </aside>
   );
 }
 

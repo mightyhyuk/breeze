@@ -29,7 +29,7 @@ function LibrarySong({
   };
 
   return (
-    <div
+    <article
       onClick={selectSong}
       className={`library-song ${song.isActive ? "selected" : ""}`}
     >
@@ -38,7 +38,7 @@ function LibrarySong({
         <h3>{song.title}</h3>
         <h4>{song.artist}</h4>
       </div>
-    </div>
+    </article>
   );
 }
 

@@ -9,6 +9,8 @@ import "./styles/app.scss";
 
 import getChillhopSongs from "./data/chillhop";
 
+import { getSkippedSong } from "./utils/getSkippedSong";
+
 function App() {
   // state
   const [songs, setSongs] = useState(getChillhopSongs());
@@ -29,6 +31,26 @@ function App() {
       currentTime: e.target.currentTime,
       duration: e.target.duration || 0,
     });
+  };
+
+  const updateSongs = (updatedSong) => {
+    const updatedSongs = songs.map((s) =>
+      s.id === updatedSong.id
+        ? { ...s, isActive: true }
+        : { ...s, isActive: false }
+    );
+    setSongs(updatedSongs);
+  };
+
+  const handleEnded = () => {
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const skippedSong = getSkippedSong(songs, "forward", currentIndex);
+    setCurrentSong(skippedSong);
+    updateSongs(skippedSong);
+
+    setTimeout(() => {
+      audioRef.current.play();
+    }, 0);
   };
 
   return (
@@ -54,12 +76,14 @@ function App() {
         audioRef={audioRef}
         songInfo={songInfo}
         setSongInfo={setSongInfo}
+        updateSongs={updateSongs}
       />
       <audio
         onTimeUpdate={updateSongInfo}
         onLoadedMetadata={updateSongInfo}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={handleEnded}
       ></audio>
     </div>
   );

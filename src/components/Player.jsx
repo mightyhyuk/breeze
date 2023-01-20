@@ -19,6 +19,7 @@ function Player({
   audioRef,
   songInfo,
   setSongInfo,
+  updateSongs,
 }) {
   const playSong = () => {
     isPlaying ? audioRef.current.pause() : audioRef.current.play();
@@ -31,15 +32,6 @@ function Player({
       ...songInfo,
       currentTime: e.target.value,
     });
-  };
-
-  const updateSongs = (updatedSong) => {
-    const updatedSongs = songs.map((s) =>
-      s.id === updatedSong.id
-        ? { ...s, isActive: true }
-        : { ...s, isActive: false }
-    );
-    setSongs(updatedSongs);
   };
 
   const handleSkip = async (direction) => {

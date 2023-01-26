@@ -8,8 +8,15 @@
   overflow: scroll;
   transform: translateX(-100%);
   transition: all 0.5s ease;
-  h2 {
-    padding: 2rem;
+  .lib-bar {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      padding: 2rem;
+    }
+    .exit {
+      cursor: pointer;
+    }
   }
 }
 .library::-webkit-scrollbar {
@@ -29,6 +36,7 @@
   align-items: center;
   padding: 1rem 2rem;
   cursor: pointer;
+  transition: background 0.2s ease;
   img {
     width: 30%;
   }

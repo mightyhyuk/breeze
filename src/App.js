@@ -64,6 +64,7 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         isLibOpen={isLibOpen}
+        setIsLibOpen={setIsLibOpen}
       />
       <Song currentSong={currentSong} />
       <Player

@@ -54,7 +54,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${isLibOpen ? "lib-open" : ""}`}>
       <Navbar isLibOpen={isLibOpen} setIsLibOpen={setIsLibOpen} />
       <Library
         songs={songs}

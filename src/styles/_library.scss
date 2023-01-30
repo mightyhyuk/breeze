@@ -1,3 +1,5 @@
+$peach-color: #fad0c9;
+
 .library {
   width: 20rem;
   height: 100%;
@@ -8,6 +10,7 @@
   overflow: scroll;
   transform: translateX(-100%);
   transition: all 0.5s ease;
+  z-index: 1;
   .lib-bar {
     display: flex;
     justify-content: space-between;
@@ -16,6 +19,9 @@
     }
     .exit {
       cursor: pointer;
+      &:hover {
+        color: gray;
+      }
     }
   }
 }
@@ -41,11 +47,11 @@
     width: 30%;
   }
   &:hover {
-    background: #fad0c9;
+    background: $peach-color;
   }
 }
 .selected {
-  background: #fad0c9;
+  background: $peach-color;
 }
 
 .song-desc {

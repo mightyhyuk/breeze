@@ -19,7 +19,7 @@ function Library({
 
   return (
     <aside className={`library ${isLibOpen ? "open" : ""}`}>
-      <div className="lib-bar">
+      <div className="library-bar">
         <h2>Library</h2>
         <h2>
           <FontAwesomeIcon onClick={exit} className="exit" icon={faXmark} />

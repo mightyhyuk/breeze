@@ -16,9 +16,10 @@ function App() {
   const [songs, setSongs] = useState(getChillhopSongs());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [songInfo, setSongInfo] = useState({
+  const [songStatus, setSongStatus] = useState({
     currentTime: 0,
     duration: 0,
+    runPercentage: 0,
   });
   const [isLibOpen, setIsLibOpen] = useState(false);
 
@@ -26,10 +27,11 @@ function App() {
   const audioRef = useRef(null);
 
   // func
-  const updateSongInfo = (e) => {
-    setSongInfo({
+  const updateSongStatus = (e) => {
+    setSongStatus({
       currentTime: e.target.currentTime,
       duration: e.target.duration || 0,
+      runPercentage: (e.target.currentTime / e.target.duration) * 100 || 0,
     });
   };
 
@@ -75,13 +77,13 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         audioRef={audioRef}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
+        songStatus={songStatus}
+        setSongStatus={setSongStatus}
         updateSongs={updateSongs}
       />
       <audio
-        onTimeUpdate={updateSongInfo}
-        onLoadedMetadata={updateSongInfo}
+        onTimeUpdate={updateSongStatus}
+        onLoadedMetadata={updateSongStatus}
         ref={audioRef}
         src={currentSong.audio}
         onEnded={handleEnded}

@@ -17,8 +17,8 @@ function Player({
   isPlaying,
   setIsPlaying,
   audioRef,
-  songInfo,
-  setSongInfo,
+  songStatus,
+  setSongStatus,
   updateSongs,
 }) {
   const playSong = () => {
@@ -28,8 +28,8 @@ function Player({
 
   const handleRangeChange = (e) => {
     audioRef.current.currentTime = e.target.value;
-    setSongInfo({
-      ...songInfo,
+    setSongStatus({
+      ...songStatus,
       currentTime: e.target.value,
     });
   };
@@ -52,15 +52,22 @@ function Player({
   return (
     <div className="player">
       <div className="time-control">
-        <time>{getCleanTime(songInfo.currentTime)}</time>
-        <input
-          min={0}
-          value={songInfo.currentTime}
-          max={songInfo.duration}
-          type="range"
-          onChange={handleRangeChange}
-        />
-        <time>{getCleanTime(songInfo.duration)}</time>
+        <time>{getCleanTime(songStatus.currentTime)}</time>
+        <div className="track">
+          <input
+            min={0}
+            value={songStatus.currentTime}
+            max={songStatus.duration}
+            type="range"
+            onChange={handleRangeChange}
+          />
+          <div
+            style={{ transform: `translateX(${songStatus.runPercentage}%)` }}
+            className="run"
+          ></div>
+        </div>
+
+        <time>{getCleanTime(songStatus.duration)}</time>
       </div>
       <div className="play-control">
         <FontAwesomeIcon

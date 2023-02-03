@@ -1,3 +1,6 @@
+$progress-color: #606060;
+$run-color: #ffffff;
+
 .player {
   min-height: 20vh;
   display: flex;
@@ -8,10 +11,30 @@
 
 .time-control {
   width: 50%;
+  font-weight: bold;
   display: flex;
-  input {
+  align-items: center;
+  .track {
+    background: $progress-color;
     width: 100%;
+    height: 0.6rem;
     margin: 0 1rem 0 1rem;
+    position: relative;
+    overflow: hidden;
+    input {
+      width: 100%;
+      appearance: none;
+    }
+    .run {
+      background: $run-color;
+      opacity: 0.85;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
   }
 }
 
@@ -31,5 +54,29 @@
   }
   .play-control {
     width: 75%;
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1px;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: $progress-color;
+  height: 16px;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: transparent;
+  border: none;
+}
+input[type="range"]::-moz-range-track {
+  background: $progress-color;
+  height: 16px;
+  &:hover {
+    opacity: 0.9;
   }
 }

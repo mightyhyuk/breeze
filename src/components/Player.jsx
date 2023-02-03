@@ -1,3 +1,10 @@
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  songsState,
+  currentSongState,
+  isPlayingState,
+  songStatusState,
+} from "../lib/recoil-atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -9,18 +16,12 @@ import {
 import { getCleanTime } from "../utils/getCleanTime";
 import { getSkippedSong } from "../utils/getSkippedSong";
 
-function Player({
-  currentSong,
-  setCurrentSong,
-  songs,
-  setSongs,
-  isPlaying,
-  setIsPlaying,
-  audioRef,
-  songStatus,
-  setSongStatus,
-  updateSongs,
-}) {
+function Player({ audioRef, updateSongs }) {
+  const songs = useRecoilValue(songsState);
+  const [currentSong, setCurrentSong] = useRecoilState(currentSongState);
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+  const [songStatus, setSongStatus] = useRecoilState(songStatusState);
+
   const playSong = () => {
     isPlaying ? audioRef.current.pause() : audioRef.current.play();
     setIsPlaying(!isPlaying);
@@ -34,18 +35,16 @@ function Player({
     });
   };
 
-  const handleSkip = async (direction) => {
+  const handleSkip = (direction) => {
     const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     const skippedSong = getSkippedSong(songs, direction, currentIndex);
-    await setCurrentSong(skippedSong);
+    setCurrentSong(skippedSong);
     updateSongs(skippedSong);
 
     if (isPlaying) {
-      await audioRef.current.play().catch((e) => {
-        console.error(e);
-        audioRef.current.pause();
-        setIsPlaying(false);
-      });
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 0);
     }
   };
 

@@ -1,4 +1,10 @@
-function Song({ currentSong, isPlaying }) {
+import { useRecoilValue } from "recoil";
+import { currentSongState, isPlayingState } from "../lib/recoil-atoms";
+
+function Song() {
+  const currentSong = useRecoilValue(currentSongState);
+  const isPlaying = useRecoilValue(isPlayingState);
+
   return (
     <div className="song-container">
       <img

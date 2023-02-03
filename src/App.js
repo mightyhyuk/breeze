@@ -1,4 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  songsState,
+  currentSongState,
+  songStatusState,
+  isLibOpenState,
+} from "./lib/recoil-atoms";
 
 import Song from "./components/Song";
 import Player from "./components/Player";
@@ -7,21 +14,14 @@ import Navbar from "./components/Navbar";
 
 import "./styles/app.scss";
 
-import getChillhopSongs from "./data/chillhop";
-
 import { getSkippedSong } from "./utils/getSkippedSong";
 
 function App() {
-  // state
-  const [songs, setSongs] = useState(getChillhopSongs());
-  const [currentSong, setCurrentSong] = useState(songs[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [songStatus, setSongStatus] = useState({
-    currentTime: 0,
-    duration: 0,
-    runPercentage: 0,
-  });
-  const [isLibOpen, setIsLibOpen] = useState(false);
+  // recoil state
+  const [songs, setSongs] = useRecoilState(songsState);
+  const [currentSong, setCurrentSong] = useRecoilState(currentSongState);
+  const setSongStatus = useSetRecoilState(songStatusState);
+  const isLibOpen = useRecoilValue(isLibOpenState);
 
   // ref
   const audioRef = useRef(null);
@@ -57,30 +57,10 @@ function App() {
 
   return (
     <div className={`App ${isLibOpen ? "lib-open" : ""}`}>
-      <Navbar isLibOpen={isLibOpen} setIsLibOpen={setIsLibOpen} />
-      <Library
-        songs={songs}
-        setSongs={setSongs}
-        setCurrentSong={setCurrentSong}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        isLibOpen={isLibOpen}
-        setIsLibOpen={setIsLibOpen}
-      />
-      <Song currentSong={currentSong} isPlaying={isPlaying} />
-      <Player
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        songs={songs}
-        setSongs={setSongs}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-        songStatus={songStatus}
-        setSongStatus={setSongStatus}
-        updateSongs={updateSongs}
-      />
+      <Navbar />
+      <Library audioRef={audioRef} />
+      <Song />
+      <Player audioRef={audioRef} updateSongs={updateSongs} />
       <audio
         onTimeUpdate={updateSongStatus}
         onLoadedMetadata={updateSongStatus}

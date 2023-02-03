@@ -1,7 +1,12 @@
+import { useRecoilState } from "recoil";
+import { isLibOpenState } from "../lib/recoil-atoms";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 
-function Navbar({ isLibOpen, setIsLibOpen }) {
+function Navbar() {
+  const [isLibOpen, setIsLibOpen] = useRecoilState(isLibOpenState);
+
   return (
     <nav>
       <h1>breeze</h1>

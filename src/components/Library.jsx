@@ -1,18 +1,15 @@
+import { useRecoilState, useRecoilValue } from "recoil";
+import { songsState, isLibOpenState } from "../lib/recoil-atoms";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import LibrarySong from "./LibrarySong";
 
-function Library({
-  songs,
-  setSongs,
-  setCurrentSong,
-  audioRef,
-  isPlaying,
-  setIsPlaying,
-  isLibOpen,
-  setIsLibOpen,
-}) {
+function Library({ audioRef }) {
+  const songs = useRecoilValue(songsState);
+  const [isLibOpen, setIsLibOpen] = useRecoilState(isLibOpenState);
+
   const exit = () => {
     setIsLibOpen(false);
   };
@@ -26,16 +23,7 @@ function Library({
         </h2>
       </div>
       {songs.map((song) => (
-        <LibrarySong
-          key={song.id}
-          song={song}
-          setCurrentSong={setCurrentSong}
-          songs={songs}
-          setSongs={setSongs}
-          audioRef={audioRef}
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
-        />
+        <LibrarySong key={song.id} song={song} audioRef={audioRef} />
       ))}
     </aside>
   );

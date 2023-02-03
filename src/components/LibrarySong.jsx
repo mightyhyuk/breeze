@@ -1,25 +1,26 @@
-function LibrarySong({
-  song,
-  setCurrentSong,
-  songs,
-  setSongs,
-  audioRef,
-  isPlaying,
-  setIsPlaying,
-}) {
-  const selectSong = async () => {
-    await setCurrentSong(song);
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  currentSongState,
+  songsState,
+  isPlayingState,
+} from "../lib/recoil-atoms";
+
+function LibrarySong({ song, audioRef }) {
+  const setCurrentSong = useSetRecoilState(currentSongState);
+  const [songs, setSongs] = useRecoilState(songsState);
+  const isPlaying = useRecoilValue(isPlayingState);
+
+  const selectSong = () => {
+    setCurrentSong(song);
     const updatedSongs = songs.map((s) =>
       s.id === song.id ? { ...s, isActive: true } : { ...s, isActive: false }
     );
     setSongs(updatedSongs);
 
     if (isPlaying) {
-      await audioRef.current.play().catch((e) => {
-        console.error(e);
-        audioRef.current.pause();
-        setIsPlaying(false);
-      });
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 0);
     }
   };
 

@@ -29,7 +29,7 @@ function LibrarySong({ song, audioRef }) {
       onClick={selectSong}
       className={`library-song ${song.isActive ? "selected" : ""}`}
     >
-      <img src={song.cover} alt="Cover" />
+      <img src={song.coverImg} alt="Cover" />
       <div className="song-desc">
         <h3>{song.title}</h3>
         <h4>{song.artist}</h4>

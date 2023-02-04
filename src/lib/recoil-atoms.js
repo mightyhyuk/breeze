@@ -1,7 +1,5 @@
 import { atom } from "recoil";
-import getChillhopSongs from "../data/chillhop";
-
-const songs = getChillhopSongs();
+import songs from "../data/songs";
 
 export const songsState = atom({
   key: "Songs",

@@ -8,7 +8,7 @@ function Song() {
   return (
     <div className="song-container">
       <img
-        src={currentSong.cover}
+        src={currentSong.coverImg}
         alt="Cover"
         className={isPlaying ? "rotated" : ""}
       />

@@ -4,7 +4,7 @@ A music player application using React
 
 ## Visit
 
-[breeze](https://music-player-lime-gamma.vercel.app/)
+[music-player-mightyhyuk.vercel.app](https://music-player-lime-gamma.vercel.app/)
 
 ## Features
 

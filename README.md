@@ -1,10 +1,10 @@
-# Music Player
+# breeze
 
 A music player application using React
 
 ## Visit
 
-<a href="https://music-player-mightyhyuk.vercel.app/" target="_blank">music-player-mightyhyuk.vercel.app</a>
+URL
 
 ## Features
 
@@ -21,12 +21,12 @@ You can do:
 
 <figure>
     <figcaption>Mobile</figcaption>
-    <img src="/public/responsive-mobile.png" height="400" alt="Mobile">
+    <img src="/public/mobile.png" height="400" alt="Mobile">
 </figure>
 
 <figure>
     <figcaption>Desktop</figcaption>
-    <img src="/public/responsive-desktop.png" height="400" alt="Desktop">
+    <img src="/public/desktop.png" height="400" alt="Desktop">
 </figure>
 
 ### Cross Browsing

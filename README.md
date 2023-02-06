@@ -4,7 +4,7 @@ A music player application using React
 
 ## Visit
 
-[music-player-mightyhyuk.vercel.app](https://music-player-lime-gamma.vercel.app/)
+<a href="https://music-player-mightyhyuk.vercel.app/" target="_blank">music-player-mightyhyuk.vercel.app</a>
 
 ## Features
 

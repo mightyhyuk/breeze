@@ -1,4 +1,4 @@
-$progress-color: #555555;
+$progress-color: #4c4c4c;
 $run-color: #ffffff;
 
 .player {
@@ -65,7 +65,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: $progress-color;
   height: 16px;
   &:hover {
-    opacity: 0.9;
+    opacity: 0.87;
   }
 }
 
@@ -77,6 +77,6 @@ input[type="range"]::-moz-range-track {
   background: $progress-color;
   height: 16px;
   &:hover {
-    opacity: 0.9;
+    opacity: 0.87;
   }
 }

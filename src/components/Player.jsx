@@ -5,6 +5,7 @@ import {
   isPlayingState,
   songStatusState,
 } from "../lib/recoil-atoms";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -61,7 +62,11 @@ function Player({ audioRef, updateSongs }) {
             onChange={handleRangeChange}
           />
           <div
-            style={{ transform: `translateX(${songStatus.runPercentage}%)` }}
+            style={{
+              transform: `translateX(${
+                (songStatus.currentTime / songStatus.duration) * 100 || 0
+              }%)`,
+            }}
             className="run"
           ></div>
         </div>

@@ -31,7 +31,6 @@ function App() {
     setSongStatus({
       currentTime: e.target.currentTime,
       duration: e.target.duration || 0,
-      runPercentage: (e.target.currentTime / e.target.duration) * 100 || 0,
     });
   };
 

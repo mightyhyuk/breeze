@@ -21,7 +21,6 @@ export const songStatusState = atom({
   default: {
     currentTime: 0,
     duration: 0,
-    runPercentage: 0,
   },
 });
 

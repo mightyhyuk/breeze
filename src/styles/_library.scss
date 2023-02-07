@@ -1,5 +1,5 @@
 $peach-color: #ffe2dd;
-$peach-color-strong: #ffd0c8;
+$peach-color-dark: #ffd0c8;
 $peach-color-light: #ffeae7;
 $ashy-color: rgba(155, 155, 155, 0.5);
 
@@ -46,9 +46,9 @@ $ashy-color: rgba(155, 155, 155, 0.5);
 }
 
 .library-song {
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
   cursor: pointer;
   transition: background 0.2s ease;
   img {
@@ -62,7 +62,7 @@ $ashy-color: rgba(155, 155, 155, 0.5);
   }
 }
 .selected {
-  background: $peach-color-strong;
+  background: $peach-color-dark;
 }
 
 .song-desc {

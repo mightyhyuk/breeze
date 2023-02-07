@@ -6,10 +6,10 @@ nav {
   align-items: center;
   button {
     background: transparent;
+    padding: 0.5rem;
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid black;
-    padding: 0.5rem;
     transition: all 0.5s ease;
     &:hover {
       background: black;

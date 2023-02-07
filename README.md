@@ -35,8 +35,9 @@ It provides the same environment across different browsers:
 
 - Chrome
 - Edge
-- Safari
 - Firefox
+- Opera
+- etc.
 
 ## Tools
 

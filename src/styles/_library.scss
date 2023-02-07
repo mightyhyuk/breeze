@@ -1,11 +1,12 @@
 $peach-color: #ffe2dd;
 $peach-color-strong: #ffd0c8;
 $peach-color-light: #ffeae7;
+$ashy-color: rgba(155, 155, 155, 0.5);
 
 .library {
   width: 20rem;
   height: 100%;
-  background-color: white;
+  background: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,8 +17,12 @@ $peach-color-light: #ffeae7;
   .library-bar {
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 0 3px $ashy-color;
     h2 {
-      padding: 2rem;
+      padding: 1.5rem;
     }
     .exit {
       cursor: pointer;
@@ -32,7 +37,7 @@ $peach-color-light: #ffeae7;
   width: 7px;
 }
 .library::-webkit-scrollbar-thumb {
-  background-color: rgba(155, 155, 155, 0.5);
+  background: $ashy-color;
   border-radius: 20px;
 }
 .open {

@@ -1,19 +1,38 @@
 nav {
+  width: 70%;
   min-height: 10vh;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  button {
-    background: transparent;
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid black;
-    transition: all 0.5s ease;
-    &:hover {
-      background: black;
-      color: white;
+  .column {
+    flex: 33.3%;
+    text-align: center;
+  }
+  .column:first-of-type {
+    flex: none;
+  }
+  .column:last-of-type {
+    font-size: 1.3rem;
+    .icons {
+      cursor: pointer;
+      &:hover {
+        color: rgb(104, 104, 104);
+      }
+      &:active {
+        color: rgb(143, 143, 143);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 85%;
+    .column:first-of-type {
+      flex: 33.3%;
+    }
+    .column:last-of-type {
+      text-align: end;
     }
   }
 }

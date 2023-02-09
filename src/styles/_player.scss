@@ -45,6 +45,12 @@ $run-color: #ffffff;
   align-items: center;
   svg {
     cursor: pointer;
+    &:hover {
+      color: rgb(83, 83, 83);
+    }
+    &:active {
+      color: rgb(112, 112, 112);
+    }
   }
 }
 

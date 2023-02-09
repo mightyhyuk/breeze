@@ -27,7 +27,10 @@ $ashy-color: rgba(155, 155, 155, 0.5);
     .exit {
       cursor: pointer;
       &:hover {
-        color: gray;
+        color: rgb(104, 104, 104);
+      }
+      &:active {
+        color: rgb(143, 143, 143);
       }
     }
   }

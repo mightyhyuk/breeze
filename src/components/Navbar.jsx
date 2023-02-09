@@ -2,18 +2,23 @@ import { useRecoilState } from "recoil";
 import { isLibOpenState } from "../lib/recoil-atoms";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
+import { faMusic, faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   const [isLibOpen, setIsLibOpen] = useRecoilState(isLibOpenState);
 
   return (
     <nav>
-      <h1>breeze</h1>
-      <button onClick={() => setIsLibOpen(!isLibOpen)}>
-        Library
-        <FontAwesomeIcon icon={faMusic} />
-      </button>
+      <div className="column"></div>
+      <div className="column">
+        <h1>breeze</h1>
+      </div>
+      <div className="column" onClick={() => setIsLibOpen(!isLibOpen)}>
+        <span className="icons">
+          <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon icon={faMusic} />
+        </span>
+      </div>
     </nav>
   );
 }

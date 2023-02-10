@@ -14,8 +14,8 @@ You can do:
 
 - toggle playing by clicking ▶/⏸
 - skip forward/backward the music by clicking ⏪/⏩.
-- view all the music in the directory by clicking Library🎵.
-- select music you want to play in the Library sidebar.
+- view all the music in the collection by clicking 🎵.
+- select music you want to play in the sidebar.
 
 ### Responsive Web Design
 

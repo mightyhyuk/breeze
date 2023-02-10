@@ -13,8 +13,8 @@ function Navbar() {
       <div className="column">
         <h1>breeze</h1>
       </div>
-      <div className="column" onClick={() => setIsLibOpen(!isLibOpen)}>
-        <span className="icons">
+      <div className="column">
+        <span className="icons" onClick={() => setIsLibOpen(!isLibOpen)}>
           <FontAwesomeIcon icon={faBars} />
           <FontAwesomeIcon icon={faMusic} />
         </span>

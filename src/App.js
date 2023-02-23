@@ -17,16 +17,16 @@ import "./styles/app.scss";
 import { getSkippedSong } from "./utils/getSkippedSong";
 
 function App() {
-  // recoil state
+  // recoil states
   const [songs, setSongs] = useRecoilState(songsState);
   const [currentSong, setCurrentSong] = useRecoilState(currentSongState);
   const setSongStatus = useSetRecoilState(songStatusState);
   const isLibOpen = useRecoilValue(isLibOpenState);
 
-  // ref
+  // refs
   const audioRef = useRef(null);
 
-  // func
+  // funcs
   const updateSongStatus = (e) => {
     setSongStatus({
       currentTime: e.target.currentTime,
@@ -35,10 +35,10 @@ function App() {
   };
 
   const updateSongs = (updatedSong) => {
-    const updatedSongs = songs.map((s) =>
-      s.id === updatedSong.id
-        ? { ...s, isActive: true }
-        : { ...s, isActive: false }
+    const updatedSongs = songs.map((song) =>
+      song.id === updatedSong.id
+        ? { ...song, isActive: true }
+        : { ...song, isActive: false }
     );
     setSongs(updatedSongs);
   };

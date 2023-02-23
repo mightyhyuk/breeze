@@ -29,11 +29,11 @@ h4 {
   transition: all 0.5s ease;
 }
 
-.lib-open {
+.sidebar-open {
   margin-left: 20%;
 }
 
 @import "./song";
 @import "./player";
-@import "./library";
+@import "./sidebar";
 @import "./navbar";

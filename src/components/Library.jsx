@@ -15,8 +15,8 @@ function Library({ audioRef }) {
   };
 
   return (
-    <aside className={`library ${isLibOpen ? "open" : ""}`}>
-      <div className="library-bar">
+    <aside className={`sidebar ${isLibOpen ? "open" : ""}`}>
+      <div className="sidebar-top">
         <h2>Collection</h2>
         <h2>
           <FontAwesomeIcon onClick={exit} className="exit" icon={faXmark} />

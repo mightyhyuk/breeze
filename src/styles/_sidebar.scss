@@ -3,7 +3,7 @@ $peach-color-dark: #ffd0c8;
 $peach-color-light: #ffeae7;
 $ashy-color: rgba(155, 155, 155, 0.5);
 
-.library {
+.sidebar {
   width: 20rem;
   height: 100%;
   background: white;
@@ -14,7 +14,7 @@ $ashy-color: rgba(155, 155, 155, 0.5);
   transform: translateX(-100%);
   transition: all 0.5s ease;
   z-index: 1;
-  .library-bar {
+  .sidebar-top {
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -36,10 +36,10 @@ $ashy-color: rgba(155, 155, 155, 0.5);
   }
   scrollbar-width: thin;
 }
-.library::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 7px;
 }
-.library::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
   background: $ashy-color;
   border-radius: 20px;
 }
@@ -48,7 +48,7 @@ $ashy-color: rgba(155, 155, 155, 0.5);
   box-shadow: 0 0 50px rgb(200, 200, 200);
 }
 
-.library-song {
+.sidebar-song {
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@ $ashy-color: rgba(155, 155, 155, 0.5);
 }
 
 @media (max-width: 768px) {
-  .library {
+  .sidebar {
     width: 100%;
   }
 }

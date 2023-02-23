@@ -55,7 +55,7 @@ function App() {
   };
 
   return (
-    <div className={`App ${isLibOpen ? "lib-open" : ""}`}>
+    <div className={`App ${isLibOpen ? "sidebar-open" : ""}`}>
       <Navbar />
       <Library audioRef={audioRef} />
       <Song />

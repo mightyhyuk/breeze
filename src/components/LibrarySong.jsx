@@ -27,7 +27,7 @@ function LibrarySong({ song, audioRef }) {
   return (
     <article
       onClick={selectSong}
-      className={`library-song ${song.isActive ? "selected" : ""}`}
+      className={`sidebar-song ${song.isActive ? "selected" : ""}`}
     >
       <img src={song.coverImg} alt="Cover" />
       <div className="song-desc">

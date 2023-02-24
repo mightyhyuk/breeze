@@ -4,12 +4,12 @@ import {
   songsState,
   currentSongState,
   songStatusState,
-  isLibOpenState,
+  isSidebarOpenState,
 } from "./lib/recoil-atoms";
 
 import Song from "./components/Song";
 import Player from "./components/Player";
-import Library from "./components/Library";
+import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 
 import "./styles/app.scss";
@@ -21,7 +21,7 @@ function App() {
   const [songs, setSongs] = useRecoilState(songsState);
   const [currentSong, setCurrentSong] = useRecoilState(currentSongState);
   const setSongStatus = useSetRecoilState(songStatusState);
-  const isLibOpen = useRecoilValue(isLibOpenState);
+  const isSidebarOpen = useRecoilValue(isSidebarOpenState);
 
   // refs
   const audioRef = useRef(null);
@@ -55,9 +55,9 @@ function App() {
   };
 
   return (
-    <div className={`App ${isLibOpen ? "sidebar-open" : ""}`}>
+    <div className={`App ${isSidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar />
-      <Library audioRef={audioRef} />
+      <Sidebar audioRef={audioRef} />
       <Song />
       <Player audioRef={audioRef} updateSongs={updateSongs} />
       <audio

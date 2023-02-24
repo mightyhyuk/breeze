@@ -24,7 +24,7 @@ export const songStatusState = atom({
   },
 });
 
-export const isLibOpenState = atom({
-  key: "IsLibOpen",
+export const isSidebarOpenState = atom({
+  key: "IsSidebarOpen",
   default: false,
 });

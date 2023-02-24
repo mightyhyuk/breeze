@@ -5,7 +5,7 @@ import {
   isPlayingState,
 } from "../lib/recoil-atoms";
 
-function LibrarySong({ song, audioRef }) {
+function SidebarSong({ song, audioRef }) {
   const setCurrentSong = useSetRecoilState(currentSongState);
   const [songs, setSongs] = useRecoilState(songsState);
   const isPlaying = useRecoilValue(isPlayingState);
@@ -38,4 +38,4 @@ function LibrarySong({ song, audioRef }) {
   );
 }
 
-export default LibrarySong;
+export default SidebarSong;

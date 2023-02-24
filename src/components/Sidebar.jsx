@@ -1,21 +1,21 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { songsState, isLibOpenState } from "../lib/recoil-atoms";
+import { songsState, isSidebarOpenState } from "../lib/recoil-atoms";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import LibrarySong from "./LibrarySong";
+import SidebarSong from "./SidebarSong";
 
-function Library({ audioRef }) {
+function Sidebar({ audioRef }) {
   const songs = useRecoilValue(songsState);
-  const [isLibOpen, setIsLibOpen] = useRecoilState(isLibOpenState);
+  const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(isSidebarOpenState);
 
   const exit = () => {
-    setIsLibOpen(false);
+    setIsSidebarOpen(false);
   };
 
   return (
-    <aside className={`sidebar ${isLibOpen ? "open" : ""}`}>
+    <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
       <div className="sidebar-top">
         <h2>Collection</h2>
         <h2>
@@ -23,10 +23,10 @@ function Library({ audioRef }) {
         </h2>
       </div>
       {songs.map((song) => (
-        <LibrarySong key={song.id} song={song} audioRef={audioRef} />
+        <SidebarSong key={song.id} song={song} audioRef={audioRef} />
       ))}
     </aside>
   );
 }
 
-export default Library;
+export default Sidebar;

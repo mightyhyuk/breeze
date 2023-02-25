@@ -13,7 +13,7 @@ This app serves **lo-fi hiphop music** from [Chillhop Music](https://chillhop.co
 You can do:
 
 - toggle playing by clicking ▶/⏸
-- skip forward/backward the music by clicking ⏪/⏩.
+- skip forward/backward the music by clicking ⏮/⏭.
 - view all the music in the collection by clicking 🎵.
 - select music you want to play in the sidebar.
 
@@ -21,7 +21,8 @@ You can do:
 
 <figure>
     <figcaption>Mobile</figcaption>
-    <img src="/public/mobile.png" height="400" alt="Mobile">
+    <img src="/public/mobile1.png" height="400" alt="Mobile" style="margin-right: 5px;">
+    <img src="/public/mobile2.png" height="400" alt="Mobile">
 </figure>
 
 <figure>

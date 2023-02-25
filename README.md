@@ -20,14 +20,18 @@ You can do:
 ### Responsive Web Design
 
 <figure>
-    <figcaption>Mobile</figcaption>
-    <img src="/public/mobile1.png" height="400" alt="Mobile" style="margin-right: 5px;">
-    <img src="/public/mobile2.png" height="400" alt="Mobile">
+    <figcaption>Desktop</figcaption>
+    <img src="/public/desktop.png" height="400" alt="Desktop">
 </figure>
 
 <figure>
-    <figcaption>Desktop</figcaption>
-    <img src="/public/desktop.png" height="400" alt="Desktop">
+    <figcaption>Mobile</figcaption>
+    <div>
+        <img src="/public/mobile1.png" height="400" alt="Mobile1">
+        &nbsp
+        &nbsp
+        <img src="/public/mobile2.png" height="400" alt="Mobile2">
+    </div>
 </figure>
 
 ### Cross Browsing
